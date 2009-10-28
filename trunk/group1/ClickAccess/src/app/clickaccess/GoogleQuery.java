@@ -42,7 +42,7 @@ public final class GoogleQuery {
 	// This method returns a map of Google results.
 	// maxNumResults MUST be a multiple of 8... and can be no larger than 64.
 	// The URL is the key, the page title is the value.
-	public static Map<String, String> makeQuery(String query, int maxNumResults) {
+	public static Map<String, String> query(String query, int maxNumResults) {
 		// Make sure the maxNumResults is a multiple of 8 and no more than 64.
 		if (maxNumResults % 8 != 0 || maxNumResults < 8 || maxNumResults > 64) {
 			maxNumResults = DEFAULT_MAX_NUMBER_OF_RESULTS;
