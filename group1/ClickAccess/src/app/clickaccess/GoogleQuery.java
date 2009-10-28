@@ -32,7 +32,7 @@ public final class GoogleQuery {
 	private static final String HTTP_REFERER = "http://www.wvu.edu";
 	
 	// This must be a multiple of 8 and can be no larger than 64.
-	private static final int MAX_NUMBER_OF_RESULTS = 24;
+	private static final int DEFAULT_MAX_NUMBER_OF_RESULTS = 24;
 	
 	// Various data related to the search URL.
 	private static final String BASE_GOOGLE_URL = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large";
@@ -40,8 +40,14 @@ public final class GoogleQuery {
 	private static final String QUERY_PREFIX = "&q=";
 	
 	// This method returns a map of Google results.
+	// maxNumResults MUST be a multiple of 8... and can be no larger than 64.
 	// The URL is the key, the page title is the value.
-	public static Map<String, String> makeQuery(String query) {
+	public static Map<String, String> makeQuery(String query, int maxNumResults) {
+		// Make sure the maxNumResults is a multiple of 8 and no more than 64.
+		if (maxNumResults % 8 != 0 || maxNumResults < 8 || maxNumResults > 64) {
+			maxNumResults = DEFAULT_MAX_NUMBER_OF_RESULTS;
+		}
+		
 		// Convert query.
 		try {
 			query = URLEncoder.encode(query, "UTF-8");
@@ -55,9 +61,9 @@ public final class GoogleQuery {
 		}
 
 		// Search Google... looping through each page of results.
-		Map<String, String> finalResults = new HashMap<String, String>();
+		Map<String, String> finalResults = new HashMap<String, String>(maxNumResults);
 		int i = 0;
-		while (i < MAX_NUMBER_OF_RESULTS && finalResults != null) {
+		while (i < maxNumResults && finalResults != null) {
 			// Open Connection to Google.
 			URLConnection connection = GoogleQuery.openConnectionToGoogle(query, i);
 			if (connection == null) {
