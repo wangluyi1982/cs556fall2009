@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+	<TableLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:stretchColumns="0">
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<TextView android:id="@+id/Name" android:layout_width="100dip"
+				android:layout_height="wrap_content" android:text="Name:" />
+
+			<EditText android:id="@+id/name" android:layout_width="200dip"
+				android:layout_height="wrap_content" android:editable="true" />
+		</TableRow>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:id="@+id/Gender" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Gender:"
+				android:singleLine="true" />
+
+			<RadioGroup android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="vertical">
+
+				<RadioButton android:id="@+id/female"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="Female" />
+
+				<RadioButton android:id="@+id/male"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="Male" android:singleLine="false" />
+
+			</RadioGroup>
+		</TableRow>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginTop="10dip"
+				android:text="Top Size:" />
+
+			<Spinner android:id="@+id/topsize" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:drawSelectorOnTop="true"
+				android:prompt="@string/size_prompt" android:singleLine="false" />
+		</TableRow>
+		
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginTop="10dip"
+				android:text="Waist Size:" />
+
+			<Spinner android:id="@+id/waistsize" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:drawSelectorOnTop="true"
+				android:prompt="@string/size_prompt" android:singleLine="false" />
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:id="@+id/Height" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Height:" />
+
+			<AutoCompleteTextView android:id="@+id/height"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:singleLine="false" />
+		</TableRow>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:id="@+id/FavouriteColor"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="Favourite Color:" />
+
+			<AutoCompleteTextView android:id="@+id/favouritecolor"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:singleLine="false" />
+		</TableRow>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<Button android:id="@+id/submit"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="Submit" />
+
+			<Button android:id="@+id/cancel"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="Cancel" />
+		</TableRow>
+	</TableLayout>
+</LinearLayout>
