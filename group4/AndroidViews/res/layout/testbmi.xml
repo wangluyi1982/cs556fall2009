@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
->
+<TableLayout
+android:id="@+id/TableLayout01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:stretchColumns="1"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TableRow>
 <RadioGroup android:id="@+id/testRadioGroup"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content" >
@@ -15,26 +17,34 @@ android:id="@+id/radio1"
 android:text="Female"
 android:id="@+id/radio2" />
 </RadioGroup>
+</TableRow>
+<TableRow>
 <TextView
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="Height"
+android:text="Height in meters"
 />
 <EditText android:id="@+id/height"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:label="Height"
+android:numeric="decimal"
 />
+</TableRow>
+<TableRow>
 <TextView
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="Weight"
+android:text="Weight in kgs"
 />
 <EditText android:id="@+id/weight"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:label="Weight"
+android:numeric="decimal"
 />
+</TableRow>
+<TableRow>
 <TextView
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
@@ -44,7 +54,10 @@ android:text="Age"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:label="Age"
+android:numeric="decimal"
 />
+</TableRow>
+<TableRow>
 <Button android:id="@+id/submit"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
@@ -53,9 +66,22 @@ android:text="Calculate"/>
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Cancel"/>
-<TextView android:id="@+id/bmi"
+</TableRow>
+<TableRow>
+<TextView
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="BMI"
 />
-</LinearLayout>
+<TextView android:id="@+id/bmi"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
+<TableRow>
+<TextView android:id="@+id/msg"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
+</TableLayout>

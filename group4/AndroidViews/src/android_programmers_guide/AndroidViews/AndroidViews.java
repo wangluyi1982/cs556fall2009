@@ -13,10 +13,6 @@ public class AndroidViews extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-    /*public void showAutoComplete(){
-  	  Intent autocomplete=new Intent(this,autocomplete.class);
-  	  startActivity(autocomplete);
-    }*/
     public void showBMI() {
     	Intent showBMI = new Intent(this, testBMI.class);
     	startActivity(showBMI);
