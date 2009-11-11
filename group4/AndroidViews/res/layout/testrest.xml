@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="Arby's" />
+<item android:id = "@+id/submenu1" android:title="Arby's">
+ <menu>
+  <item android:id="@+id/suboption1" android:title="Chicken Sub" />
+  <item android:id="@+id/suboption2" android:title="Milkshake" />
+ </menu>
+</item>
+<item android:title="ChickFil-A" />
+<item android:id = "@+id/submenu1" android:title="ChickFil-A">
+<menu>
+<item android:id="@+id/suboption1" android:title="Potato Wedges" />
+</menu>
+</item>
+</menu>
