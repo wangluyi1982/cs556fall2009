@@ -17,6 +17,10 @@ public class AndroidViews extends Activity {
     	Intent showBMI = new Intent(this, testBMI.class);
     	startActivity(showBMI);
     	}
+    public void showrest(){
+    	Intent showrest = new Intent(this, testRest.class);
+    	startActivity(showrest);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
@@ -35,7 +39,7 @@ public class AndroidViews extends Activity {
     case 1:
     	return true;
     case 2:
-    	//showAutoComplete();
+        showrest();
     return true;
    }
     return true;
