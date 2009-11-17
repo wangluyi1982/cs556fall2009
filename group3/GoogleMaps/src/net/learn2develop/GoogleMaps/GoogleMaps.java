@@ -1,24 +1,33 @@
 package net.learn2develop.GoogleMaps;
 
+import java.util.List;
+
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.MyLocationOverlay;
+import com.google.android.maps.Overlay;
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-public class GoogleMaps extends MapActivity  
+public class GoogleMaps extends MapActivity implements LocationListener
 {
     private MapView mapView;
     private MapController mc;
-
+    private LocationManager lm;
+    private MyLocationOverlay lo;
+    private MapView mv;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+        initLocation();
         mapView = (MapView) findViewById(R.id.mapview1);
         mc = mapView.getController();
 
@@ -38,6 +47,13 @@ public class GoogleMaps extends MapActivity
         
         mapView.invalidate();        
     }
+    
+    private void initLocation(){
+    
+             lm= (LocationManager) this.getSystemService(LOCATION_SERVICE);
+             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 500, this);
+     
+        }
 
     @Override
     protected boolean isRouteDisplayed() {
@@ -56,4 +72,30 @@ public class GoogleMaps extends MapActivity
         }
         return super.onKeyDown(keyCode, event);
     }
+    
+    
+    public void onLocationChanged(Location location) {
+                List<Overlay> overlays = mv.getOverlays();
+                lo = new MyLocationOverlay(this,mv);
+                overlays.add(lo);
+                lo.enableMyLocation();
+     }
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
 }
