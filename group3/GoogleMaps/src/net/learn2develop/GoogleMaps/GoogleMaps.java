@@ -24,10 +24,10 @@ public class GoogleMaps extends MapActivity implements LocationListener
     private MapView mv;
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
         setContentView(R.layout.main);
-        initLocation();
+      //  initLocation();
         mapView = (MapView) findViewById(R.id.mapview1);
         mc = mapView.getController();
 
@@ -48,13 +48,14 @@ public class GoogleMaps extends MapActivity implements LocationListener
         mapView.invalidate();        
     }
     
+    /*
     private void initLocation(){
     
              lm= (LocationManager) this.getSystemService(LOCATION_SERVICE);
              lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 500, this);
      
         }
-
+*/
     @Override
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
@@ -81,19 +82,16 @@ public class GoogleMaps extends MapActivity implements LocationListener
                 lo.enableMyLocation();
      }
 
-	@Override
 	public void onProviderDisabled(String provider) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onProviderEnabled(String provider) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		// TODO Auto-generated method stub
 		
