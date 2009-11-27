@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+android:id="@+id/TableLayout02" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:stretchColumns="1"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TableRow>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Running-225 cal"
+/>
+<Button android:id="@+id/run"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"
+/>
+</TableRow>
+<TableRow>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Walking-135 cal"
+/>
+<Button android:id="@+id/walk"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Swimming-290 cal"
+/>
+<Button android:id="@+id/swim"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView android:id="@+id/mess"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
+</TableLayout>
