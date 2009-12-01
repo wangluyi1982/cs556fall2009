@@ -1,5 +1,10 @@
 package app.clickaccess;
 
+import java.io.IOException;
+import java.util.*;
+
+import com.sun.syndication.io.FeedException;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,11 +23,26 @@ public class Click extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webinfo_list);
+        ArrayList<String> feeds = null;
         mDbHelper = new WebinfoDbAdapter(this);
         mDbHelper.open();
         mDbHelper.deleteWebinfo();
-        mDbHelper.createWebinfo("Economic Crisis. Who will save the world?", "www.google.com");
-        mDbHelper.createWebinfo("G2 or G20? What will China play in the world?", "www.time.com");
+       
+		 try {
+			feeds=populateFeed();
+		}
+		catch (IOException e1){
+			System.out.println("There has been a problem trying to get the RSS feeds.");
+		} catch (FeedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} 
+		for (int i = 0; i < feeds.size()-1; i = i+2){
+			mDbHelper.createWebinfo(feeds.get(i), feeds.get(i+1));
+			//System.out.println(feeds.get(i));
+		}
+		//mDbHelper.createWebinfo("Economic Crisis. Who will save the world?", "www.google.com");
+        //mDbHelper.createWebinfo("G2 or G20? What will China play in the world?", "www.time.com");
         fillData();
         registerForContextMenu(getListView());
     }
@@ -42,6 +62,23 @@ public class Click extends ListActivity {
         SimpleCursorAdapter webinfo = 
         	    new SimpleCursorAdapter(this, R.layout.webinfo_row, mWebinfoCursor, from, to);
         setListAdapter(webinfo);
+    }
+    
+    private ArrayList<String> populateFeed() throws FeedException, IOException{
+    	ArrayList<String> feedList = new ArrayList<String>();
+    	 FeedParser fp = new FeedParser();
+         fp.addNewFeed("http://blogs.msdn.com/oldnewthing/rss.xml");
+ 		fp.addNewFeed("http://blogs.msdn.com/larryosterman/rss.xml");
+ 		for (Map.Entry<String,String> post : fp.checkFeeds().entrySet()) {
+ 			// Remember... the key is the URL and the value is the title.
+ 			feedList.add(post.getValue());
+ 			feedList.add(post.getKey());
+ 			//System.out.println("Post");
+ 			//System.out.println("Title: " + post.getValue());
+ 			//System.out.println("URL: " + post.getKey());
+ 			//System.out.println();
+ 		}
+ 		return feedList;
     }
     
 /*

@@ -27,11 +27,11 @@ public class Access extends Activity {
 	    
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        setContentView(R.layout.access_view);
-	        webview = (WebView) findViewById(R.id.webview);
-	        webview.setWebViewClient(new WebViewClient());
-	        webview.getSettings().setJavaScriptEnabled(true);
-	        webview.loadUrl("http://www.google.com");
+	        //setContentView(R.layout.access_view);
+	        //webview = (WebView) findViewById(R.id.webview);
+	        //webview.setWebViewClient(new AccessWebViewClient());
+	        //webview.getSettings().setJavaScriptEnabled(true);
+	        //webview.loadUrl("http://www.google.com");
 	        
 	        Bundle extras = getIntent().getExtras();
 	        if (extras != null) {
