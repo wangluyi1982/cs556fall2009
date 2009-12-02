@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background"
+    >
+    <TextView android:id="@+id/week"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="12px"
+    android:layout_y="361px"
+/>
+<TextView android:id="@+id/week1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</AbsoluteLayout>
