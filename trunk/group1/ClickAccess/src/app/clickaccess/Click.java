@@ -36,7 +36,7 @@ public class Click extends ListActivity {
                 //mDbHelper.createWebinfo("Economic Crisis. Who will save the world?", "www.google.com");
         //mDbHelper.createWebinfo("G2 or G20? What will China play in the world?", "www.time.com");
        
-        results = populateQueryResult("King and I");
+        results = populateQueryResult("Stock Market Today");
        
         for (int i = 0; i < results.size()-1; i = i + 2){
         mDbHelper.createWebinfo(results.get(i), results.get(i+1));
