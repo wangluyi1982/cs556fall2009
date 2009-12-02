@@ -33,12 +33,6 @@ package="android_programmers_guide.AndroidViews">
 <category android:name="android.intent.category.LAUNCHER" />
 </intent-filter>
 </activity>
-<activity android:name=".teststats" android:label="Fitness">
-<intent-filter>
-<action android:name="android.intent.action.MAIN" />
-<category android:name="android.intent.category.LAUNCHER" />
-</intent-filter>
-</activity>
 <activity android:name=".testhelp" android:label="Fitness">
 <intent-filter>
 <action android:name="android.intent.action.MAIN" />
