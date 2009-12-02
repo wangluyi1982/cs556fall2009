@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello CS556!</string>
+    <string name="app_name">Smart Navigation System</string>
+    <string name="app_morg">Morgantown</string>
+</resources>
