@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Welcome to Fashion Store, Click on the menu</string>
+    <string name="hello">Welcome to Fashion Store!!</string>
+    <string name="question">Are you a first time visitor? </string> 
     <string name="app_name">Fashion Store</string>
     <string name="size_prompt">Choose your size</string>
-        
+    <string name="options">Please click on the menu to choose your option</string>      
+    <string name="userID">Please enter your ID</string> 
 </resources>
