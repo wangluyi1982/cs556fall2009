@@ -1,9 +1,12 @@
 package app.clickaccess;
 
-import java.io.IOException;
-import java.util.*;
 
-import com.sun.syndication.io.FeedException;
+
+import app.clickaccess.GoogleQuery;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -20,29 +23,25 @@ public class Click extends ListActivity {
     
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webinfo_list);
-        ArrayList<String> feeds = null;
-        mDbHelper = new WebinfoDbAdapter(this);
+        ArrayList<String> results = new ArrayList<String>();
+		
+		mDbHelper = new WebinfoDbAdapter(this);
         mDbHelper.open();
         mDbHelper.deleteWebinfo();
-       
-		 try {
-			feeds=populateFeed();
-		}
-		catch (IOException e1){
-			System.out.println("There has been a problem trying to get the RSS feeds.");
-		} catch (FeedException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} 
-		for (int i = 0; i < feeds.size()-1; i = i+2){
-			mDbHelper.createWebinfo(feeds.get(i), feeds.get(i+1));
-			//System.out.println(feeds.get(i));
-		}
+        
+
 		//mDbHelper.createWebinfo("Economic Crisis. Who will save the world?", "www.google.com");
         //mDbHelper.createWebinfo("G2 or G20? What will China play in the world?", "www.time.com");
+        
+        results = populateQueryResult("King and I");
+        
+        for (int i = 0; i < results.size()-1; i = i + 2){
+        mDbHelper.createWebinfo(results.get(i), results.get(i+1));
+        }
+        
         fillData();
         registerForContextMenu(getListView());
     }
@@ -64,6 +63,24 @@ public class Click extends ListActivity {
         setListAdapter(webinfo);
     }
     
+    private ArrayList<String> populateQueryResult(String usersQuery) {
+		Map<String, String> results = GoogleQuery.query(usersQuery, 24);
+		ArrayList<String> resultList = new ArrayList<String>();
+		
+		int size = results.size();
+
+		Iterator<Map.Entry<String, String>> keysAndValues = results.entrySet().iterator();
+		for (int i = 0; i < size; i++) {
+			Map.Entry<String, String> e = (Map.Entry<String, String>)keysAndValues.next();
+			// Remember... the key is the URL and the value is the title.
+			System.out.println(e.getKey() + " " + e.getValue());
+			resultList.add(e.getValue());
+ 			resultList.add(e.getKey());
+		}
+		return resultList;
+	}
+    
+   /* 
     private ArrayList<String> populateFeed() throws FeedException, IOException{
     	ArrayList<String> feedList = new ArrayList<String>();
     	 FeedParser fp = new FeedParser();
@@ -80,7 +97,33 @@ public class Click extends ListActivity {
  		}
  		return feedList;
     }
-    
+   /* 
+    private void display(){
+    	ArrayList<String> feeds = new ArrayList<String>();
+    	try {
+			feeds=populateFeed();
+		}
+		catch (IOException e1){
+			e1.printStackTrace();
+		} 
+		catch (FeedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+    	mDbHelper = new WebinfoDbAdapter(this);
+        mDbHelper.open();
+        mDbHelper.deleteWebinfo();
+        
+		//for (int i = 0; i < 11; i = i+2){
+			mDbHelper.createWebinfo(feeds.get(0),feeds.get(1));
+			//mDbHelper.createWebinfo("yesyesyesyes", "www.google.com");
+			//System.out.println(feeds.get(i));
+		//}
+		//mDbHelper.createWebinfo("Economic Crisis. Who will save the world?", "www.google.com");
+        //mDbHelper.createWebinfo("G2 or G20? What will China play in the world?", "www.time.com");
+        fillData();
+    }
 /*
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
