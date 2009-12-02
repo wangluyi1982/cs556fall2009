@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:title="Arby's" />
-<item android:id = "@+id/submenu1" android:title="Arby's">
- <menu>
-  <item android:id="@+id/suboption1" android:title="Chicken Sub" />
-  <item android:id="@+id/suboption2" android:title="Milkshake" />
- </menu>
-</item>
-<item android:title="ChickFil-A" />
-<item android:id = "@+id/submenu1" android:title="ChickFil-A">
-<menu>
-<item android:id="@+id/suboption1" android:title="Potato Wedges" />
-</menu>
-</item>
-</menu>
+<TableLayout
+android:id="@+id/TableLayout01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:stretchColumns="1"
+	android:background="@drawable/background"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Burger-300 cal"
+/>
+<Button android:id="@+id/burger"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"
+/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Chicken sub-270 cal"
+/>
+<Button android:id="@+id/chicken"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Milkshake-350 cal"
+/>
+<Button android:id="@+id/milkshake"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Taco-571 cal"
+/>
+<Button android:id="@+id/taco"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="coke-97 cal"
+/>
+<Button android:id="@+id/coke"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Bread-100 cal"
+/>
+<Button android:id="@+id/bread"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Add"/>
+</TableRow>
+<TableRow>
+<TextView
+android:textColor="#000099"
+ android:id="@+id/message"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
+</TableLayout>

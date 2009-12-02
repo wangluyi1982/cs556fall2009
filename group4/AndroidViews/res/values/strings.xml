@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, AndroidViews!</string>
+    <string name="hello" color="000000">Diet Tracker</string>
     <string name="app_name">AndroidViews</string>
 </resources>

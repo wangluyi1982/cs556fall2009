@@ -16,5 +16,4 @@ helptxt.setText("This is our health app developed to keep you in shape...." +
 		"Food is used to enter the calories consumed \n" +
 		"Statistics gives you information about your calorie levels per week");
 }
-
 }

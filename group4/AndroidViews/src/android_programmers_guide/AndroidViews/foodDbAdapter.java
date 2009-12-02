@@ -12,19 +12,23 @@ public class foodDbAdapter {
 
     public static final String KEY_CALORIES = "calories";
     public static final String KEY_ROWID = "id";
+    public static final String KEY_FOOD = "food";
+    public static final String KEY_FIT = "fitness";
 
     private static final String TAG = "foodDbAdapter";
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
-    
-    private static final String DATABASE_CREATE =
-            "create table food (id integer primary key autoincrement, "
-                    + "calories integer not null);";
 
-    private static final String DATABASE_NAME = "foodfitness";
-    private static final String DATABASE_TABLE = "food";
+    private static final String DATABASE_NAME = "healthfitness";
+    private static final String DATABASE_TABLE = "health";
     private static final int DATABASE_VERSION = 2;
 
+    private static final String DATABASE_CREATE =
+        "create table health (id integer primary key autoincrement, "
+                + "calories double , "
+                + "fitness double , "
+                + "food double);";
+    
     private final Context mCtx;
     
     private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -82,9 +86,11 @@ public class foodDbAdapter {
      * @param body the body of the note
      * @return rowId or -1 if failed
      */
-    public long createNote(int calories) {
+    public long createNote(double calories,double food,double fitness) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_CALORIES, calories);
+        initialValues.put(KEY_FIT, fitness );
+        initialValues.put(KEY_FOOD, food );
         return mDb.insert(DATABASE_TABLE, null, initialValues);
     }
 
@@ -93,7 +99,10 @@ public class foodDbAdapter {
         Cursor mCursor =
 
                 mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                        KEY_CALORIES}, KEY_ROWID + "=" + rowId, null,
+                        KEY_CALORIES,
+                        KEY_FIT,
+                        KEY_FOOD}, 
+                        KEY_ROWID + "=" + rowId, null,
                         null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -102,19 +111,31 @@ public class foodDbAdapter {
 
     }
 
-    /**
-     * Update the note using the details provided. The note to be updated is
-     * specified using the rowId, and it is altered to use the title and body
-     * values passed in
-     * 
-     * @param rowId id of note to update
-     * @param title value to set note title to
-     * @param body value to set note body to
-     * @return true if the note was successfully updated, false otherwise
-     */
-    public boolean updateNote(long rowId, int calories) {
+    public Cursor fetchAllNotes() {
+
+        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID, 
+        		KEY_CALORIES,
+        		KEY_FIT,
+        		KEY_FOOD}, 
+        		null, null, null, null, null);
+    }
+
+    public boolean updateFood(long rowId, double food) {
         ContentValues args = new ContentValues();
-        args.put(KEY_CALORIES, calories);
+       
+        args.put(KEY_FOOD, food);
+        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+    }
+    public boolean updateCal(long rowId, double cal) {
+        ContentValues args = new ContentValues();
+       
+        args.put(KEY_CALORIES, cal);
+        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+    }
+    public boolean updateFit(long rowId, double fit) {
+        ContentValues args = new ContentValues();
+       
+        args.put(KEY_FIT, fit);
         
         return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }

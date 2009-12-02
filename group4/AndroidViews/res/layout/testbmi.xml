@@ -4,22 +4,26 @@ android:id="@+id/TableLayout01"
 	android:layout_width="fill_parent" 
 	android:layout_height="fill_parent"
 	android:stretchColumns="1"
+	android:background="@drawable/background"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 <TableRow>
 <RadioGroup android:id="@+id/testRadioGroup"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content" >
 <RadioButton
+android:textColor="#000099"
 android:text="Male"
 android:id="@+id/radio1"
 />
 <RadioButton
+android:textColor="#000099"
 android:text="Female"
 android:id="@+id/radio2" />
 </RadioGroup>
 </TableRow>
 <TableRow>
 <TextView
+android:textColor="#000099"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Height in meters"
@@ -33,6 +37,7 @@ android:numeric="decimal"
 </TableRow>
 <TableRow>
 <TextView
+android:textColor="#000099"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Weight in kgs"
@@ -46,6 +51,7 @@ android:numeric="decimal"
 </TableRow>
 <TableRow>
 <TextView
+android:textColor="#000099"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Age"
@@ -67,21 +73,41 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Cancel"/>
 </TableRow>
+<TableLayout
+android:id="@+id/TableLayout01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+<TableRow>
+<TextView 
+android:textColor="#000099"
+android:id="@+id/bmi"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
+<TableRow>
+<TextView 
+android:textColor="#000099"
+android:id="@+id/msg"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+/>
+</TableRow>
 <TableRow>
 <TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="BMI"
-/>
-<TextView android:id="@+id/bmi"
+android:textColor="#000099"
+android:id="@+id/msg1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 />
 </TableRow>
 <TableRow>
-<TextView android:id="@+id/msg"
+<TextView
+android:textColor="#000099"
+android:id="@+id/msg2"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 />
 </TableRow>
+</TableLayout>
 </TableLayout>
