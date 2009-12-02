@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class SummerClothes extends Activity {
+public class WinterClothes extends Activity {
 	private int userId;
 	private boolean female, male;
 	private boolean height4, height5, height6; 
@@ -22,14 +22,14 @@ public class SummerClothes extends Activity {
 	private boolean price10, price20, price30, price40, price50;
 	DBAdapter db = new DBAdapter(this);
 	private static final String TAG = "MyActivity";
-	ArrayList<SummerClothes> summerclothes = new ArrayList<SummerClothes>();	
+	ArrayList<WinterClothes> winterclothes = new ArrayList<WinterClothes>();	 
 	
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		setContentView(R.layout.checkuser);	
-		final SummerClothes userinfo = new SummerClothes();
+		final WinterClothes userinfo = new WinterClothes();
 		Button submitView = (Button) findViewById(R.id.submit);
 		
 		submitView.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +116,7 @@ public class SummerClothes extends Activity {
 					}else if(columnValue.equalsIgnoreCase("50")){
 						userinfo.price50 = true;
 					}
-					getSummerclothes().add(userinfo);					
+					getWinterclothes().add(userinfo);					
 					processSubmit();					
 					
 				}else {
@@ -141,7 +141,7 @@ public class SummerClothes extends Activity {
 				Toast.LENGTH_LONG).show();
 	}
 	public void processSubmit() {
-		for (SummerClothes sObj : summerclothes) {
+		for (WinterClothes sObj : winterclothes) {
 			Log.v(TAG, "sObj.isFemale() " + sObj.isFemale());
 			Log.v(TAG, "sObj.isRed() " + sObj.isRed());
 			Log.v(TAG, "sObj.isSize26() " + sObj.isSize26());
@@ -290,6 +290,10 @@ public class SummerClothes extends Activity {
 		return gray;
 	}
 
+	public void setGray(boolean gray) {
+		this.gray = gray;
+	}
+
 	public boolean isPrice10() {
 		return price10;
 	}
@@ -310,14 +314,8 @@ public class SummerClothes extends Activity {
 		return price50;
 	}
 	
-	public ArrayList<SummerClothes> getSummerclothes() {
-		return summerclothes;
+	public ArrayList<WinterClothes> getWinterclothes() {
+		return winterclothes;
 	}
-
-	public void setSummerclothes(ArrayList<SummerClothes> summerclothes) {
-		this.summerclothes = summerclothes;
-	}
-	
-	
 
 }

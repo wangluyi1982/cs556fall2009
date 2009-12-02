@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content" android:layout_height="wrap_content">
+	android:orientation="vertical" 
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content">
 
 	<TableLayout android:orientation="horizontal"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
@@ -20,7 +22,7 @@
 				android:layout_height="wrap_content" android:text="Gender:"
 				android:singleLine="true" />
 
-			<RadioGroup android:layout_width="fill_parent"
+			<RadioGroup android:id="@+id/radioGroup" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="vertical">
 
 				<RadioButton android:id="@+id/female"
@@ -63,7 +65,7 @@
 			<TextView android:id="@+id/Height" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:text="Height:" />
 
-			<AutoCompleteTextView android:id="@+id/height"
+			<EditText android:id="@+id/height"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:singleLine="false" />
 		</TableRow>
@@ -74,7 +76,18 @@
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:text="Favourite Color:" />
 
-			<AutoCompleteTextView android:id="@+id/favouritecolor"
+			<EditText android:id="@+id/favouritecolor"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:singleLine="false" />
+		</TableRow>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			>
+			<TextView android:id="@+id/Price"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="Price :" />
+
+			<EditText android:id="@+id/price"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:singleLine="false" />
 		</TableRow>

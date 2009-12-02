@@ -8,13 +8,34 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".SummerClothes" android:label="AutoComplete">
+		<activity android:name=".SummerClothes" android:label="Displaying Clothes">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>		
+		<activity android:name=".UserInfo" android:label="Enter your preferences">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".WinterClothes" android:label="Displaying Clothes">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".Weather" android:label="Check the Weather and choose your option">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
 	</application>
+	 <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+	
 	<uses-sdk android:minSdkVersion="4" />
 
 </manifest> 
