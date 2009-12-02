@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:background="#aa0000">
+    	android:background="#35A6A0">
     
     <ListView android:id="@+id/android:list"
           android:layout_width="wrap_content"
@@ -11,5 +11,7 @@
   	<TextView android:id="@+id/android:empty"
           android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:text="No Notes!"/>
+        	android:textColor="#FFFFFF"
+        	android:textSize="80sp"
+        	android:text="No Search Results Found."/>
 </LinearLayout>
