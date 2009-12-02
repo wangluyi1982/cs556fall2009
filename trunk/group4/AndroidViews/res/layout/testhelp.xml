@@ -3,8 +3,11 @@
 android:orientation="vertical"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
+android:background="@drawable/background"
 >
 <TextView android:id="@+id/help"
+android:textColor="#000099"
+android:textSize="20px"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 />

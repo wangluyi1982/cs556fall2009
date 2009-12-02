@@ -8,11 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.view.View;
 
-/**
- * GraphView creates a scaled line or bar graph with x and y axis labels. 
- * @author Arno den Hond
- *
- */
 public class GraphView extends View {
 
 	public static boolean BAR = true;
@@ -64,20 +59,15 @@ public class GraphView extends View {
 		paint.setColor(Color.WHITE);
 		canvas.drawLine(horstart, height-border, width, height-border, paint);
 		for (int i = 0; i < verlabels.length; i++) {
-			//paint.setColor(Color.RED);
 			float y = ((graphheight / vers) * i) + border;
-			
 			paint.setColor(Color.BLUE);
 			canvas.drawText(verlabels[i], 50, y, paint);
 		}
-		//int hors = horlabels.length - 1;
 		paint.setColor(Color.WHITE);
 		canvas.drawLine(horstart, height - border, horstart, border, paint);
 		for (int i = 0; i < horlabels.length; i++) {
-			//float x = ((graphwidth / hors) * i) + horstart;
 			float datalength = values.length;
 			float colwidth = (width /2) / datalength;
-			
 			paint.setTextAlign(Align.CENTER);
 			if (i==horlabels.length-1)
 				paint.setTextAlign(Align.RIGHT);
@@ -85,17 +75,14 @@ public class GraphView extends View {
 				paint.setTextAlign(Align.LEFT);
 			paint.setColor(Color.YELLOW);
 			canvas.drawText(horlabels[i], 20+(colwidth*i)+horstart, height - 4, paint);
-			
-			
 		}
 		
-		canvas.drawText("C1.Calories to be consumed this week: "+values[0], 300, height +30, paint);
-		canvas.drawText("C2.Calories consumed till date:       "+values[2], 300, height +50, paint);
-		canvas.drawText("C3.Calories spent during exercise:    "+values[1], 300, height +70, paint);
-		canvas.drawText("C4.Calories spent during exercise:    "+values[3], 300, height +90, paint);
+		canvas.drawText("C1-Calories to be consumed this week: "+values[0], 300, height +30, paint);
+		canvas.drawText("C2-Calories consumed till date:       "+values[2], 300, height +50, paint);
+		canvas.drawText("C3-Calories spent during exercise:    "+values[1], 300, height +70, paint);
+		canvas.drawText("C4-Calories stil to be consumed:       "+values[3], 300, height +90, paint);
 		paint.setTextAlign(Align.CENTER);
 		canvas.drawText(title, (graphwidth / 2) + horstart, border - 4, paint);
-
 		if (max != min) {
 			paint.setColor(Color.GREEN);
 			if (type == BAR) {
@@ -123,7 +110,6 @@ public class GraphView extends View {
 			}
 		}
 	}
-
 	private double getMax() {
 		double largest = Double.MIN_VALUE;
 		for (int i = 0; i < values.length; i++)

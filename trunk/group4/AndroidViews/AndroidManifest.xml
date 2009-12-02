@@ -8,6 +8,13 @@ package="android_programmers_guide.AndroidViews">
 <category android:name="android.intent.category.LAUNCHER" />
 </intent-filter>
 </activity>
+<activity android:name=".main" android:label="Test Activity">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER"
+/>
+</intent-filter>
+</activity>
 <activity android:name=".test" android:label="Test Activity">
 <intent-filter>
 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +29,30 @@ package="android_programmers_guide.AndroidViews">
 </intent-filter>
 </activity>
 <activity android:name=".testRest" android:label="Food">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+<activity android:name=".showfit" android:label="Fitness">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+<activity android:name=".teststats" android:label="Fitness">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+<activity android:name=".testhelp" android:label="Fitness">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+<activity android:name=".GraphViewDemo" android:label="Fitness">
 <intent-filter>
 <action android:name="android.intent.action.MAIN" />
 <category android:name="android.intent.category.LAUNCHER" />
