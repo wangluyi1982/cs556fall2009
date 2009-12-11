@@ -124,10 +124,11 @@ public class UserInfo extends Activity {
 				this,
 				"UserId: " + c.getString(0) + "\n" + "Username: "
 						+ c.getString(1) + "\n" + "Gender: " + c.getString(2)
-						+ "\n" + "TopSize:  " + c.getString(3) + "\n"
-						+ "WaistSize:  " + c.getString(4) + "\n"
-						+ "FavoriteColor:  " + c.getString(5)+ "\n"
-						+ "Price:  " + c.getString(6),
+						+ "\n" + "Height:  " + c.getString(3) + "\n"
+						+ "TopSize:  " + c.getString(4) + "\n"
+						+ "WaistSize:  " + c.getString(5)+ "\n"
+						+ "FavoriteColor:  " + c.getString(6)+ "\n"
+						+ "Price:  " + c.getString(7),
 				Toast.LENGTH_LONG).show();
 	}
 	
